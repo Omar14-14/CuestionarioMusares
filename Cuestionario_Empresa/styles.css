@@ -1,0 +1,211 @@
+/* Importar Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f7fafc, #e2e8f0);
+    color: #333;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Encabezados */
+h1,
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+/* Información superior */
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.info-item {
+    flex: 1 1 30%;
+    margin: 10px 5px;
+}
+
+.info-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Estilos para inputs, textarea y select */
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #d1dce5;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Fieldsets para agrupar secciones */
+fieldset {
+    border: 1px solid #d1dce5;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Preguntas y opciones */
+.question {
+    margin-bottom: 20px;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: #555;
+    cursor: pointer;
+}
+
+/* Personalización de radios y checkboxes */
+input[type="radio"],
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d1dce5;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Radios: forma circular */
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+    border-color: #3498db;
+    background-color: #3498db;
+}
+
+input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+/* Checkboxes: forma cuadrada con marca */
+input[type="checkbox"] {
+    border-radius: 4px;
+}
+
+input[type="checkbox"]:checked {
+    border-color: #3498db;
+    background-color: #3498db;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: #ffffff;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 3px;
+}
+
+/* Botón de envío */
+button {
+    width: 100%;
+    background: #3498db;
+    color: #ffffff;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Estilos para visualizar respuestas (si fuese necesario) */
+.response-item {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.response-item strong {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Enlace para volver */
+.back-link {
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cuestionario para Análisis de Requerimientos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cuestionario para Análisis de Requerimientos<br>Plataforma para Socios</h1>
+        <div class="info">
+            <div class="info-item">
+                <label for="fecha"><strong>Fecha:</strong></label>
+                <input type="date" id="fecha" name="fecha" value="2025-03-08">
+            </div>
+            <div class="info-item">
+                <label for="empresa"><strong>Empresa:</strong></label>
+                <input type="text" id="empresa" name="empresa" value="MUSARES">
+            </div>
+            <div class="info-item">
+                <label for="responsable"><strong>Responsable:</strong></label>
+                <input type="text" id="responsable" name="responsable" placeholder="Nombre del responsable">
+            </div>
+        </div>
+        <!-- Enviamos al endpoint de Vercel -->
+        <form id="questionnaire" action="/api/submit" method="POST">
+
+            <fieldset>
+                <legend>1. Sobre los Socios y el Acceso</legend>
+                <div class="question">
+                    <label for="obtencion_credencial">1.1 ¿Cómo obtienen los socios su número de credencial?</label>
+                    <textarea id="obtencion_credencial" name="obtencion_credencial"
+                        placeholder="Describa el proceso..."></textarea>
+                </div>
+                <div class="question">
+                    <label>1.2 ¿El número de credencial es único?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="credencial_unica" value="Sí" required> Sí
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="credencial_unica" value="No"> No
+                        </label>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>1.3 ¿Cada socio debe contar con un usuario y contraseña, o solo ingresará con su número de
+                        credencial?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="usuario_o_credencial" value="Usuario y contraseña" required>
+                            Usuario y contraseña
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="usuario_o_credencial" value="Solo número de credencial"> Solo
+                            número de credencial
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>2. Sobre la Plataforma</legend>
+                <div class="question">
+                    <label>2.1 ¿Prefieren una plataforma basada en un sitio web o una aplicación móvil?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="plataforma_tipo" value="Sitio web" required> Sitio web
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="plataforma_tipo" value="Aplicación móvil"> Aplicación móvil
+                        </label>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>2.2 ¿Debe ser accesible desde cualquier ubicación?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="accesible_cualquier_ubicacion" value="Sí" required> Sí
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="accesible_cualquier_ubicacion" value="No"> No
+                        </label>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>2.3 ¿Se requieren diferentes niveles de acceso?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="niveles_acceso" value="Sí" required> Sí
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="niveles_acceso" value="No"> No
+                        </label>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>2.4 ¿Los socios solo podrán ver la lista de servicios o también podrán:</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="checkbox" name="permisos_servicios" value="Modificar"> Modificarlos
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="permisos_servicios" value="Contratar/Solicitar"> Contratarlos o
+                            solicitarlos
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="permisos_servicios" value="Comentarios/Calificaciones"> Dejar
+                            comentarios o calificaciones
+                        </label>
+                    </div>
+                    <small>Nota: Se asume que ver la lista de servicios es permitido por defecto.</small>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>3. Sobre los Servicios</legend>
+                <div class="question">
+                    <label for="tipo_servicios">3.1 ¿Qué tipo de servicios estarán disponibles en la plataforma?</label>
+                    <textarea id="tipo_servicios" name="tipo_servicios"
+                        placeholder="Describa los servicios..."></textarea>
+                </div>
+                <div class="question">
+                    <label>3.3 ¿Los socios podrán solicitar servicios directamente desde la plataforma?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="solicitar_servicios" value="Sí" required> Sí
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="solicitar_servicios" value="No"> No
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>4. Seguridad y Control de Acceso</legend>
+                <div class="question">
+                    <label>4.1 ¿Desean que la plataforma registre quién accede y qué servicios consulta cada
+                        usuario?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="registro_accesos" value="Sí" required> Sí
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="registro_accesos" value="No"> No
+                        </label>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>4.2 ¿Se requiere autenticación adicional?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="checkbox" name="autenticacion_adicional" value="Correo electrónico">
+                            Verificación por correo electrónico
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="autenticacion_adicional" value="Código SMS"> Código SMS
+                        </label>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>4.3 ¿Ya cuentan con una base de datos de socios y servicios o es necesario crearla desde
+                        cero?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="base_datos_existente" value="Sí" required> Ya cuento con una base
+                            de datos
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="base_datos_existente" value="No"> Crear desde cero
+                        </label>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="formato_base_datos">4.4 Si ya tienen la base de datos, ¿en qué formato está
+                        almacenada?</label>
+                    <input type="text" id="formato_base_datos" name="formato_base_datos"
+                        placeholder="Ej: Excel, SQL, otro">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>5. Diseño y Experiencia de Usuario</legend>
+                <div class="question">
+                    <label for="diseno_referencia">5.1 ¿Cuentan con un diseño de referencia o una idea de cómo les
+                        gustaría que se vea la plataforma?</label>
+                    <textarea id="diseno_referencia" name="diseno_referencia"
+                        placeholder="Describa la idea de diseño..."></textarea>
+                </div>
+            </fieldset>
+
+            <button type="submit">Enviar respuestas</button>
+        </form>
+    </div>
+    <script>
+        // Opcional: envío del formulario vía AJAX para evitar recargas
+        document.getElementById('questionnaire').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const params = new URLSearchParams();
+            for (const pair of formData.entries()) {
+                params.append(pair[0], pair[1]);
+            }
+            const response = await fetch('/api/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: params.toString()
+            });
+            const result = await response.json();
+            alert(result.message);
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
